@@ -1,0 +1,103 @@
+{
+  "apiVersion": 1,
+  "groups": [
+    {
+      "orgId": 1,
+      "name": "Each5Min",
+      "folder": "MonitorDev",
+      "interval": "5m",
+      "rules": [
+        {% for host, services in host_services.items() %}
+
+        {
+          "title": "{{ host }} Service Check",
+          "condition": "C",
+          "data": [
+            {
+              "refId": "A",
+              "relativeTimeRange": {
+                "from": 600,
+                "to": 0
+              },
+              "datasourceUid": "000000007",
+              "model": {
+                "editorMode": "code",
+                "exemplar": false,
+                "expr": "windows_service_state{instance=\"CH-SVC-TXN03-P:9182\", state=\"running\", job=\"windows-node-exporter-cat\", name=~\"(?i:({{ services | join('|') }}))\"}",
+                "format": "time_series",
+                "instant": true,
+                "intervalMs": 1000,
+                "legendFormat": "__auto",
+                "maxDataPoints": 43200,
+                "range": false,
+                "refId": "A"
+              }
+            },
+            {
+              "refId": "C",
+              "relativeTimeRange": {
+                "from": 600,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [
+                        1
+                      ],
+                      "type": "lt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": [
+                        "C"
+                      ]
+                    },
+                    "reducer": {
+                      "params": [],
+                      "type": "last"
+                    },
+                    "type": "query"
+                  }
+                ],
+                "datasource": {
+                  "type": "__expr__",
+                  "uid": "__expr__"
+                },
+                "expression": "A",
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "refId": "C",
+                "type": "threshold"
+              }
+            }
+          ],
+          "dashboardUid": "ee6i67qvejvgga",
+          "panelId": 1,
+          "noDataState": "NoData",
+          "execErrState": "KeepLast",
+          "for": "5m",
+          "annotations": {
+            "__dashboardUid__": "ee6i67qvejvgga",
+            "__panelId__": "1",
+            "description": "Please, check if the service is running or not.",
+            "summary": "Service {{ '{{' }} index $labels \"name\" {{ '}}' }} is DOWN in server {{ '{{' }} index $labels \"instance\" {{ '}}' }}"
+          },
+          "labels": {
+            "alertname": "Windows Service DOWN",
+            "og_priority": "P1",
+            "source": "WUG imported",
+            "team": "devops"
+          },
+          "isPaused": false
+        }
+        {%  if not loop.last %}, {% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}

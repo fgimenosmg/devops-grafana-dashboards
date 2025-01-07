@@ -1,0 +1,99 @@
+resource "grafana_folder" "rule_folder" {
+  title = "WUG Alert Rule Folder"
+}
+
+resource "grafana_rule_group" "rule_group_0000" {
+  name             = "WUG Service Check"
+  folder_uid       = grafana_folder.rule_folder.uid
+  interval_seconds = 300
+  {% for host, services in host_services.items() %}
+  rule  {
+      name      = "{{host}} Service Check Alert"
+      condition = "C"
+
+      data {
+        ref_id = "A"
+
+        relative_time_range {
+          from = 600
+          to   = 0
+        }
+
+        datasource_uid = "000000007"
+        model          =<<EOT
+        {
+          "editorMode": "code",
+          "exemplar":false,
+          "expr":"windows_service_state{instance=\"{{host}}\", state=\"running\", job=\"windows-node-exporter-cat\", name=~\"(?i:({{ services | join('|') }}))\" }",
+          "format": "time_series",
+          "instant":true,
+          "intervalMs":1000,
+          "legendFormat":
+          "__auto",
+          "maxDataPoints":43200,
+          "range":false,
+          "refId": "A"
+        }
+EOT
+      }
+      data {
+        ref_id = "C"
+
+        relative_time_range {
+          from = 600
+          to   = 0
+        }
+
+        datasource_uid = "__expr__"
+        model          =<<EOT
+        {
+          "conditions": [
+            {
+            "evaluator": {
+              "params":[ 1 ],
+              "type": "lt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params":["C"]
+            },
+            "reducer":{
+              "params":[],
+              "type":"last"
+            },
+            "type":"query"}
+            ],
+          "datasource": {
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+          "expression": "A",
+          "intervalMs":1000,
+          "maxDataPoints":43200,
+          "refId": "C",
+          "type": "threshold"
+        }
+EOT
+      }
+      no_data_state  = "NoData"
+      exec_err_state = "KeepLast"
+      for            = "5m"
+      annotations = {
+        __dashboardUid__ = "ee6i67qvejvgga"
+        __panelId__      = "1"
+        description      = "Please, check if the service is running or not."
+        summary          = "Service {{ '{{' }} index $labels \"name\" {{ '}}' }} is DOWN in server {{ '{{' }} index $labels \"instance\"{{ '}}' }}"
+      }
+      labels = {
+        alertname   = "Windows Service DOWN"
+        og_priority = "P1"
+        source      = "WUG imported"
+        team        = "devops"
+      }
+      is_paused = false
+    }
+  {% endfor %}
+
+}

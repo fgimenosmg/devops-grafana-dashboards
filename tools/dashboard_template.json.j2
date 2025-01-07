@@ -1,0 +1,87 @@
+{
+    "id": null,
+    "title": "Automated WUG Dashboard",
+    "overwrite": true,
+
+  "panels": [
+      {% for host, services in host_services.items() %}
+      {
+        "type": "state-timeline",
+        "title": "Wug Panel {{ host }}",
+        "gridPos": {
+          "x": 0,
+          "y": {{ loop.index0 * 10 }},
+          "w": 12,
+          "h": 9
+        },
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "lineWidth": 0,
+              "fillOpacity": 70,
+              "spanNulls": false,
+              "insertNulls": false,
+              "hideFrom": {
+                "tooltip": false,
+                "viz": false,
+                "legend": false
+              }
+            },
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        "datasource": {
+          "uid": "000000007",
+          "type": "prometheus"
+        },
+        "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "000000007"
+          },
+          "editorMode": "code",
+          "expr": "windows_service_state{instance=~\"(?i:({{ host }}))\", name=~\"(?i:({{ services | join('|') }}))\", state=\"running\"}",
+
+
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "{{ '{{' }}name{{ '}}' }} - {{ '{{' }}server_group{{ '}}' }}",
+          "range": true,
+          "refId": "A"
+        },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "000000007"
+            },
+            "editorMode": "code",
+            "expr": "wmi_service_state{instance=~\"(?i:({{ host }}))\", name=~\"(?i:({{ services | join('|') }}))\", state=\"running\"}",
+            "format": "time_series",
+            "instant": false,
+            "legendFormat": "{{ '{{' }}name{{ '}}' }} - {{ '{{' }}server_group{{ '}}' }}",
+            "range": true,
+            "refId": "B"
+          }
+      ]
+      }
+      {%  if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+}
