@@ -89,7 +89,27 @@ resource "grafana_contact_point" "devops_main" {
     url                     = "http://runbook_runner:5000/run_runbook"
     http_method             = "POST"
   }
+
 }
+
+resource "grafana_contact_point" "devops_alerts" {
+  name = "DevOps - Alert"
+
+  opsgenie {
+    api_key           = "afd08b45-b344-4f0f-88b8-cb6b9668887a"
+    url               = "https://api.opsgenie.com/v2/alerts"
+    auto_close        = true
+    override_priority = true
+    send_tags_as      = "both"
+  }
+
+  webhook {
+    disable_resolve_message = true
+    url                     = "http://runbook_runner:5000/run_runbook"
+    http_method             = "POST"
+  }
+}
+
 resource "grafana_contact_point" "contact_point_7" {
   name = "DevOps - autogen-contact-point-20"
 
@@ -369,28 +389,28 @@ resource "grafana_contact_point" "contact_point_24" {
 #     send_tags_as      = "both"
 #   }
 # }
-resource "grafana_contact_point" "contact_point_27" {
-  name = "OpsGenie (DevOps)"
-
-  opsgenie {
-    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
-    url               = "https://api.opsgenie.com/v2/alerts"
-    auto_close        = true
-    override_priority = true
-  }
-  opsgenie {
-    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
-    url               = "https://api.opsgenie.com/v2/alerts"
-    auto_close        = true
-    override_priority = true
-  }
-  opsgenie {
-    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
-    url               = "https://api.opsgenie.com/v2/alerts"
-    auto_close        = true
-    override_priority = true
-  }
-}
+#resource "grafana_contact_point" "contact_point_27" {
+#  name = "OpsGenie (DevOps)"
+#
+#  opsgenie {
+#    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
+#    url               = "https://api.opsgenie.com/v2/alerts"
+#    auto_close        = true
+#    override_priority = true
+#  }
+#  opsgenie {
+#    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
+#    url               = "https://api.opsgenie.com/v2/alerts"
+#    auto_close        = true
+#    override_priority = true
+#  }
+#  opsgenie {
+#    api_key           = "4ffd1642-133f-4130-a862-1fdee01a4c49"
+#    url               = "https://api.opsgenie.com/v2/alerts"
+#    auto_close        = true
+#    override_priority = true
+#  }
+#}
 resource "grafana_contact_point" "contact_point_28" {
   name = "OpsGenie (DevOps) NG"
 

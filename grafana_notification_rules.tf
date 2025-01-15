@@ -26,7 +26,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
     # "DevOps - OpsGenie"
     matcher {
       label = "rule_uid"
@@ -71,7 +71,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -80,7 +80,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -98,7 +98,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -116,7 +116,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -215,7 +215,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -341,7 +341,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -575,7 +575,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -782,7 +782,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -791,7 +791,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -800,7 +800,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -809,7 +809,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -818,7 +818,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -827,7 +827,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -872,7 +872,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -980,7 +980,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -989,7 +989,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -998,7 +998,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1178,7 +1178,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1187,7 +1187,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1232,7 +1232,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1358,7 +1358,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1475,7 +1475,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1718,7 +1718,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1727,7 +1727,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1736,7 +1736,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1745,7 +1745,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1763,7 +1763,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1772,7 +1772,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1781,7 +1781,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1790,7 +1790,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1799,7 +1799,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1808,7 +1808,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1817,7 +1817,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1826,7 +1826,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1835,7 +1835,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1844,7 +1844,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1853,7 +1853,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1862,7 +1862,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1871,7 +1871,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1880,7 +1880,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1889,7 +1889,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1898,7 +1898,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1907,7 +1907,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -1916,7 +1916,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "rule_uid"
@@ -2098,7 +2098,7 @@ resource "grafana_notification_policy" "notification_policy_1" {
     }
   }
   policy {
-    contact_point = grafana_contact_point.devops_main.name
+    contact_point = grafana_contact_point.devops_alerts.name
 
     matcher {
       label = "og_priority"
